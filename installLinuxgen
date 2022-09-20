@@ -1,0 +1,12 @@
+
+sudo apt install emacs
+sudo apt install g++
+sudo apt install git
+sudo apt install python3
+sudo python3 -m ensurepip
+sudo python3 -m ensurepip --upgrade
+sudo python3 -m pip install matplotlib
+sudo python3 -m pip install numpy
+sudo python3 -m pip install scipy
+sudo python3 -m pip install iminuit
+sudo apt install cmake
