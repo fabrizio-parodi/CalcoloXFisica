@@ -61,19 +61,8 @@ echo "source ~/Software/root-6.28.06/bin/thisroot.sh" >> ~/.profile
 echo "export DISPLAY=localhost:0.0" >> ~/.profile
 echo "cd" >> ~/.profile
 
-if [[ $# -eq 0 ]]; then 
-
-   echo " "
-   echo "---> installing Qt5"
-   echo " "
-   yes Y | sudo apt install qt5-default
-   sudo strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
-
+if [[ $1 -eq 1 ]]; then 
    echo "---> installing scidavis"
-   sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/hpcoder1/xUbuntu_22.04/ /' > /etc/apt/sources.list.d/home:hpcoder1.list"
-   wget -nv https://download.opensuse.org/repositories/home:hpcoder1/xUbuntu_22.04/Release.key -O Release.key
-   sudo apt-key add -< Release.key
-   sudo apt update
    yes Y | sudo apt install scidavis
 fi
 
