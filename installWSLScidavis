@@ -3,8 +3,7 @@ echo 'deb http://download.opensuse.org/repositories/home:/hpcoder1/xUbuntu_22.04
 curl -fsSL https://download.opensuse.org/repositories/home:hpcoder1/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_hpcoder1.gpg > /dev/null
 yes Y | sudo apt update
 yes Y | sudo apt install scidavis
-yes Y | sudo apt-get install binutils
+yes Y | sudo apt install binutils qtbase5-dev qt5-qmake
 yes Y | sudo strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
-yes Y | sudo apt-get install build-essential
-
+yes Y | sudo apt install build-essential
 
