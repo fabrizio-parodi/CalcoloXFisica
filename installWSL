@@ -55,7 +55,12 @@ mv root root-6.32.04
 
 
 echo "source ~/Software/root-6.32.04/bin/thisroot.sh" >> ~/.profile
-echo "export DISPLAY=localhost:0.0" >> ~/.profile
+
+export test=`uname -a | greo -c WSL2`
+if [ "$test" -eq "0"];
+then
+   echo "export DISPLAY=localhost:0.0" >> ~/.profile
+fi
 echo "cd" >> ~/.profile
 
 
