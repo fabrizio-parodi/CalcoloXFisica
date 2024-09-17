@@ -49,8 +49,8 @@ echo " "
 echo "---> downloading root"
 echo " "
 
-wget --no-check-certificate https://root.cern/download/root_v6.32.04.Linux-ubuntu22-x86_64-gcc11.4.tar.gz
-tar zxf root_v6.32.04.Linux-ubuntu22-x86_64-gcc11.4.tar.gz
+wget --no-check-certificate https://root.cern/download/root_v6.32.04.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
+tar zxf root_v6.32.04.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
 mv root root-6.32.04
 
 
