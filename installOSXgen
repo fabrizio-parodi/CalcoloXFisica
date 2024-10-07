@@ -1,18 +1,38 @@
 
-echo "Installing brew"
+setup_brew() {
+    echo "Installing brew"
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew update
-brew upgrade
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew update
+    brew upgrade
 
-echo "Installing Git/Python/Cmake"
+    echo ""
+    echo "Installed HOMEBREW, check for post-intallation messsages"
+    echo "If everything is good, installing should start automagically"
+}
 
-brew install git
-brew install python3
-python3 -m ensurepip
-python3 -m ensurepip --upgrade
-python3 -m pip install matplotlib
-python3 -m pip install numpy
-python3 -m pip install scipy
-python3 -m pip install iminuit
-brew install cmake
+setup_workspace() {
+    echo ""
+    echo "Installing Git/Python/Cmake"
+
+    which -s brew
+    if [[ $? != 0 ]] ; then
+	echo "Please install homebrew or check the postinstall messages "
+	echo "saying to source the executible, then proceed to the second "
+	echo "part of the installation by inserting the command "
+	echo "'setup_workspace'"
+    else 
+	brew install git
+	brew install python3
+	python3 -m ensurepip
+	python3 -m ensurepip --upgrade
+	python3 -m pip install matplotlib
+	python3 -m pip install numpy
+	python3 -m pip install scipy
+	python3 -m pip install iminuit
+	brew install cmake
+    fi
+}
+    
+setup_brew
+setup_workspace

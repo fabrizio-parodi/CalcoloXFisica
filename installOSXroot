@@ -1,14 +1,28 @@
 
-echo "Installing ROOT"
+which -s brew
 
-cd
-mkdir Software
-cd Software
-mkdir root_build root_install
-git clone --branch latest-stable https://github.com/root-project/root.git root_src
-cd root_build
-cmake -DCMAKE_INSTALL_PREFIX=../root_install -Dbuiltin_glew=ON ../root_src
+if [[ $? != 0 ]] ; then
 
-echo "Compiling ROOT. It will take a while..."
+    echo "'homebrew' is apparently not installed or not setup correctly, "
+    echo "check again with the installation output for possible post-"
+    echo "install suggested commands, then run again 'setup_workspace' "
+    echo "and then run again 'source CalcoloXFisica/installOSXroot' to "
+    echo "install root correctly"
 
-cmake --build . -- install -j4
+else
+
+    echo "Installing ROOT"
+
+    cd
+    mkdir Software
+    cd Software
+    mkdir root_build root_install
+    git clone --branch latest-stable https://github.com/root-project/root.git root_src
+    cd root_build
+    cmake -DCMAKE_INSTALL_PREFIX=../root_install -Dbuiltin_glew=ON ../root_src
+
+    echo "Compiling ROOT. It will take a while..."
+
+    cmake --build . -- install -j4
+fi
+
