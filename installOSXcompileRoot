@@ -1,0 +1,14 @@
+echo "Installing ROOT"
+
+cd
+mkdir Software
+cd Software
+mkdir root_build root_install
+git clone --branch latest-stable https://github.com/root-project/root.git root_src
+cd root_build
+cmake -DCMAKE_INSTALL_PREFIX=../root_install -Dbuiltin_glew=ON ../root_src
+
+echo "Compiling ROOT. It will take a while..."
+
+cmake --build . -- install -j4
+
