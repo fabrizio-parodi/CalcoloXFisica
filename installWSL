@@ -49,12 +49,12 @@ echo " "
 echo "---> downloading root"
 echo " "
 
-wget --no-check-certificate https://root.cern/download/root_v6.36.00-rc1.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz
-tar zxf root_v6.36.00-rc1.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz
-mv root root-6.36.00
+wget --no-check-certificate https://root.cern/download/root_v6.32.04.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
+tar zxf root_v6.32.04.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
+mv root root-6.32.04
 
 
-echo "source ~/Software/root-6.36.00/bin/thisroot.sh" >> ~/.profile
+echo "source ~/Software/root-6.32.04/bin/thisroot.sh" >> ~/.profile
 
 export test=`uname -a | grep -c WSL2`
 if [ "$test" -eq "0" ];
