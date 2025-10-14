@@ -54,13 +54,13 @@ setup_workspace() {
 	brew install --cask emacs
 
 	echo "\n\n --> Installed emacs, configuration is added in ${EMACS_CONFIG}"
-	printf ";; Alt-meta fix" >> $EMACS_CONFIG
-	printf "(setq ns-alternate-modifier 'meta)" >> $EMACS_CONFIG
-	printf "(setq mac-right-option-modifier 'none)" >> $EMACS_CONFIG
-	printf "(setq ns-right-option-modifier 'none)" >> $EMACS_CONFIG
-	printf "(setq ns-right-altrnate-modifier 'none)" >> $EMACS_CONFIG
-	printf ";; No load screen, line numbers" >> $EMACS_CONFIG
-	printf "(setq inhibit-startup-screen t)" >> $EMACS_CONFIG
+	printf ";; Alt-meta fix\n" >> $EMACS_CONFIG
+	printf "(setq ns-alternate-modifier 'meta)\n" >> $EMACS_CONFIG
+	printf "(setq mac-right-option-modifier 'none)\n" >> $EMACS_CONFIG
+	printf "(setq ns-right-option-modifier 'none)\n" >> $EMACS_CONFIG
+	printf "(setq ns-right-altrnate-modifier 'none)\n\n" >> $EMACS_CONFIG
+	printf ";; No load screen, line numbers\n" >> $EMACS_CONFIG
+	printf "(setq inhibit-startup-screen t)\n" >> $EMACS_CONFIG
     fi
 }
 
