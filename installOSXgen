@@ -1,3 +1,4 @@
+EMACS_CONFIG=~/.emacs
 
 setup_brew() {
     echo "Installing brew"
@@ -9,6 +10,19 @@ setup_brew() {
     echo ""
     echo "Installed HOMEBREW, check for post-intallation messsages"
     echo "If everything is good, installing should start automagically"
+}
+
+setup_filerc() {
+    if [[ "$SHELL" == *"bash"* ]]; then
+	RC_FILE="$HOME/.bashrc"
+    elif [[ "$SHELL" == *"zsh"* ]]; then
+	RC_FILE="$HOME/.zshrc"
+    else
+	echo "Unknown shell: $SHELL"
+	exit 1
+    fi
+
+    echo "Additional configurations will be added to the ${RC_FILE} file"
 }
 
 setup_workspace() {
@@ -24,16 +38,32 @@ setup_workspace() {
     else 
 	brew install git
 	brew install python3
-	python3 -m ensurepip
-	python3 -m ensurepip --upgrade
-	python3 -m pip install matplotlib
-	python3 -m pip install numpy
-	python3 -m pip install scipy
-	python3 -m pip install iminuit
+	echo "\n\n --> Installed Python3, setting up the virtual environment..."
+	python3 -m venv ~/.venv_${USER}
+	source ~/.venv_${USER}/bin/activate
+
+	printf "source ~/.venv_${USER}/bin/activate\n" >> $RC_FILE
+	
+	python -m ensurepip
+	python -m ensurepip --upgrade
+	python -m pip install matplotlib
+	python -m pip install numpy
+	python -m pip install scipy
+	python -m pip install iminuit
 	brew install cmake
-    brew install --cask emacs
+	brew install --cask emacs
+
+	echo "\n\n --> Installed emacs, configuration is added in ${EMACS_CONFIG}"
+	printf ";; Alt-meta fix\n" >> $EMACS_CONFIG
+	printf "(setq ns-alternate-modifier 'meta)\n" >> $EMACS_CONFIG
+	printf "(setq mac-right-option-modifier 'none)\n" >> $EMACS_CONFIG
+	printf "(setq ns-right-option-modifier 'none)\n" >> $EMACS_CONFIG
+	printf "(setq ns-right-altrnate-modifier 'none)\n\n" >> $EMACS_CONFIG
+	printf ";; No load screen, line numbers\n" >> $EMACS_CONFIG
+	printf "(setq inhibit-startup-screen t)\n" >> $EMACS_CONFIG
     fi
 }
-    
+
+setup_filerc
 setup_brew
 setup_workspace
