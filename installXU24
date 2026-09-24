@@ -1,0 +1,66 @@
+cd
+
+echo " "
+echo "---> apt update"
+echo " "
+sudo apt update
+
+echo " "
+echo "---> apt upgrade"
+echo " "
+sudo apt upgrade
+
+
+echo " "
+echo "---> installing emacs"
+echo " "
+sudo apt install emacs
+
+echo " "
+echo "---> installing wget"
+echo " "
+yes Y | sudo apt install wget
+
+echo " "
+echo "---> installing python"
+echo " "
+yes Y | sudo apt install python3
+yes Y | sudo apt install python3-pip
+sudo python3 -m pip install matplotlib
+sudo python3 -m pip install numpy
+sudo python3 -m pip install scipy
+sudo python3 -m pip install iminuit
+
+echo " "
+echo "---> installing notebook"
+echo " "
+sudo python3 -m pip install notebook
+
+echo " "
+echo "---> installing root dependencies"
+echo " "
+yes Y | sudo apt install git dpkg-dev cmake g++ gcc binutils libtbb2 libtbb-dev libx11-dev libxpm-dev libxft-dev libxext-dev python-dev-is-python3
+
+cd
+mkdir Software
+cd Software
+
+echo " "
+echo "---> downloading root"
+echo " "
+
+wget --no-check-certificate https://root.cern/download/root_v6.40.04.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz
+tar zxf root_v6.40.04.Linux-ubuntu24.04-x86_64-gcc13.3.tar.gz
+mv root root-6.40.04
+
+
+echo "source ~/Software/root-6.32.04/bin/thisroot.sh" >> ~/.profile
+
+export test=`uname -a | grep -c WSL2`
+if [ "$test" -eq "0" ];
+then
+   echo "export DISPLAY=localhost:0.0" >> ~/.profile
+fi
+echo "cd" >> ~/.profile
+
+cd
