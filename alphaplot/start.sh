@@ -1,4 +1,6 @@
 #!/bin/bash
+
+xhost +
 docker run --rm -it \
   --cap-add=SYS_ADMIN \
   --cap-add=NET_ADMIN \
