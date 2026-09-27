@@ -21,11 +21,19 @@ docker build -t alphaplot alphaplot/
 ```
 A questo punto, per aprire l'applicazione, sarà necessario eseguire lo script `alphaplot/start.sh`.
 
+Per poter eseguire lo script in qualunque momento, è importante che salviate sul `$PATH` la posizione relativa a questa directory, eseguendo, da dentro `CalcoloXFisica/alphaplot/` il comando
+
+```bash
+echo PATH=$PATH:$PWD >> .zshrc
+```
+
+Questo consentirà di avere il comando `start.sh` raggiungibile da qualunque path vi troviate (non solo dallo standard)
+
 ## Utilizzo
 
 Poiché state utilizzando un container, il file-system (aka, dove vengono salvati i files) non è lo stesso del vostro computer. 
 
-Quando vorrete **salvare** un progetto di AlphaPlot, è FONDAMENTALE (altrimenti PERDERETE tutti i progressi) che lo facciate nella cartella `Home` (in alto a sinistra) nella finestra pop-up che comparirà quando clickate su `File > Save Project (ctrl + S)` dalla finestra di AlphaPlot. 
+Quando vorrete **salvare** un progetto di AlphaPlot, è FONDAMENTALE (altrimenti PERDERETE tutti i progressi) che lo facciate nella cartella `Home` (in alto a sinistra), nella subdirectory 'AlphaPlot`. nella finestra pop-up che comparirà quando clickate su `File > Save Project (ctrl + S)` dalla finestra di AlphaPlot. 
 
 ![Figure](bin/fig.png)
 

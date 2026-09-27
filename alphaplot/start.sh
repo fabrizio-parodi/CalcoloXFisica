@@ -8,5 +8,5 @@ docker run --rm -it \
   --security-opt apparmor=unconfined \
   --device /dev/fuse \
   -e DISPLAY=host.docker.internal:0 \
-  -v ~/alphaplot-data:/root/ \
+  -v ~/alphaplot-data:/root/AlphaPlot/ \
   alphaplot

@@ -14,7 +14,7 @@ RUN flatpak remote-add --if-not-exists \
         flathub https://flathub.org/repo/flathub.flatpakrepo
 RUN flatpak install -y flathub io.github.narunlifescience.AlphaPlot
 RUN flatpak override --share=network io.github.narunlifescience.AlphaPlot
-RUN flatpak override --filesystem=/root/ io.github.narunlifescience.AlphaPlot
+RUN flatpak override --filesystem=/root/AlphaPlot/ io.github.narunlifescience.AlphaPlot
 
 COPY bin/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
