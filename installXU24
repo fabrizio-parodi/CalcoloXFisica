@@ -8,13 +8,13 @@ sudo apt update
 echo " "
 echo "---> apt upgrade"
 echo " "
-sudo apt upgrade
+yes Y | sudo apt upgrade
 
 
 echo " "
 echo "---> installing emacs"
 echo " "
-sudo apt install emacs
+yes Y | sudo apt install emacs
 
 echo " "
 echo "---> installing wget"
