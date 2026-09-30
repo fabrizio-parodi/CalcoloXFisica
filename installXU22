@@ -51,10 +51,9 @@ echo " "
 
 wget --no-check-certificate https://root.cern/download/root_v6.32.04.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
 tar zxf root_v6.32.04.Linux-ubuntu22.04-x86_64-gcc11.4.tar.gz
-mv root root-6.32.04
 
 
-echo "source ~/Software/root-6.32.04/bin/thisroot.sh" >> ~/.profile
+echo "source ~/Software/root/bin/thisroot.sh" >> ~/.profile
 
 export test=`uname -a | grep -c WSL2`
 if [ "$test" -eq "0" ];
