@@ -14,7 +14,7 @@ yes Y | sudo apt upgrade
 echo " "
 echo "---> installing emacs"
 echo " "
-sudo apt install emacs
+sudo apt install -y emacs
 
 echo " "
 echo "---> installing wget"
